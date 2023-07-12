@@ -1,0 +1,149 @@
+/* #F45050 - Red main
+#F9F5EB - white ice
+#E4DCCF - grey
+#D8D9CF - deep grey
+#EDEDED - light grey */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+    font-family: "Poppins", "sans-serif";
+}
+
+.navbar {
+    background-color: #F45050;
+}
+
+.bg-navbar {
+    background-color: #F45050;
+    color: white;
+}
+
+.logo-navbar {
+    color: white;
+    font-size: 25px;
+}
+
+.nav-link {
+    font-size: 19px;
+    text-decoration: none;
+    border-color: #D8D9CF;
+    background-image: linear-gradient(to right,
+            #D8D9CF,
+            #D8D9CF 50%,
+            #ffffff 50%);
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link::before {
+    content: '';
+    background: #D8D9CF;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+
+.nav-link:hover::before {
+    width:100%;
+}  
+#logo {
+    color: white;
+}
+
+#logo:hover {
+    color: white;
+    
+}
+.btn-primary {
+    border-color: #F45050;
+    background-color: #F45050;
+    color: white;
+}
+
+.btn-primary:hover {
+    border-color: #F45050;
+    background-color: #ff3e3e;
+    color: white;
+}
+
+.logoo {
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary::after {
+    text-decoration: none;
+    border-color: 0;
+    background-color: #ff3e3e;
+    color: white;
+    /* border-size */
+}
+
+.btn-primary::before {
+    border-color: #F45050;
+    background-color: #ff3e3e;
+    color: white;
+}
+
+.btn-primary:focus {
+    background-color: #ff3e3e;
+    box-shadow: 0px 0px 5px 0px #ff3e3e;
+    border: #ff3e3e;
+    color: white;
+}
+
+.text-label {
+    font-size: 14px;
+}
+
+.text-error {
+    color: red;
+    font-size: 12px;
+}
+
+.input-error {
+    border: 1px solid red;
+}
+
+
+.form-control:focus{
+    border: 1px solid #7c7c7c ;
+    box-shadow: none;
+    box-shadow: 0px 0px 2px 1px #7c7c7c;
+    /* border: 1px solid red; */
+    /* outline: 0; */
+}
+
+.form-check-input:checked {
+    border: 1px solid #ff3e3e;
+    background-color: #ff3e3e;
+    box-shadow: 0px 0px 0px 0px #ff3e3e;
+}
+
+.form-select:valid:focus {
+    box-shadow: none;
+    border: 3px solid 7c7c7c;
+}
+
+.form-select > option:nth-child(2):hover {
+    background-color: #7c7c7c;
+}
+
+/* .form-select > option:hover {
+    background-color: black;
+} */

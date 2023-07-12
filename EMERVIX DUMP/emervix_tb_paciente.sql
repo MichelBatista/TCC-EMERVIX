@@ -1,0 +1,69 @@
+-- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
+--
+-- Host: localhost    Database: emervix
+-- ------------------------------------------------------
+-- Server version	10.4.28-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `tb_paciente`
+--
+
+DROP TABLE IF EXISTS `tb_paciente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_paciente` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME` varchar(255) DEFAULT NULL,
+  `DATA_NASCIMENTO` date DEFAULT NULL,
+  `GENERO` int(11) NOT NULL,
+  `ESTADO_PACIENTE` int(11) NOT NULL,
+  `TIPO_SANGUINEO` int(11) DEFAULT NULL,
+  `UNIDADE_DE_SAUDE` int(11) NOT NULL,
+  `STATUS` int(11) DEFAULT NULL,
+  `DATA_INICIO` datetime NOT NULL,
+  `DATA_FINAL` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fk_Genero` (`GENERO`),
+  KEY `fk_Estado_Paciente` (`ESTADO_PACIENTE`),
+  KEY `fk_Tipo_Sanguineo` (`TIPO_SANGUINEO`),
+  KEY `fk_Unidade_de_Saude` (`UNIDADE_DE_SAUDE`),
+  KEY `STATUS` (`STATUS`),
+  CONSTRAINT `fk_Estado_Paciente` FOREIGN KEY (`ESTADO_PACIENTE`) REFERENCES `estado_paciente` (`ID`),
+  CONSTRAINT `fk_Genero` FOREIGN KEY (`GENERO`) REFERENCES `genero` (`ID`),
+  CONSTRAINT `fk_Tipo_Sanguineo` FOREIGN KEY (`TIPO_SANGUINEO`) REFERENCES `tipo_sanguineo` (`ID`),
+  CONSTRAINT `fk_Unidade_de_Saude` FOREIGN KEY (`UNIDADE_DE_SAUDE`) REFERENCES `unidade_de_saude` (`ID`),
+  CONSTRAINT `tb_paciente_ibfk_1` FOREIGN KEY (`STATUS`) REFERENCES `status` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_paciente`
+--
+
+LOCK TABLES `tb_paciente` WRITE;
+/*!40000 ALTER TABLE `tb_paciente` DISABLE KEYS */;
+INSERT INTO `tb_paciente` VALUES (76,'Alessandro','0000-00-00',1,3,0,6,2,'2023-07-12 12:38:45','2023-07-12 12:56:30'),(77,'Não Informado','0000-00-00',1,2,0,7,1,'2023-07-12 14:59:12',NULL),(78,'Joao','2005-05-27',1,2,2,7,1,'2023-07-12 14:59:49',NULL);
+/*!40000 ALTER TABLE `tb_paciente` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-07-12 15:08:09
